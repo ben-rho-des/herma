@@ -4,6 +4,7 @@ to: src/components/<%= h.changeCase.pascalCase(name) %>/<%= h.changeCase.camelCa
 
 import styled from '@emotion/styled';
 
-export const Styled<%= h.changeCase.pascalCase(name) %> = styled.button`
-  background: green;
+export const Styled<%= h.changeCase.pascalCase(name) %> = styled.span`
+  background: DarkTurquoise;
+  font-size: 5rem;
 `;
