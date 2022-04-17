@@ -1,13 +1,23 @@
 import React from 'react';
-import { StyledNoSsr } from './noSsr.style';
+import { useState, useEffect } from 'react';
 
 export interface NoSsrProps {
-  active?: boolean | undefined;
   children?: React.ReactNode;
-  className?: string;
-  disabled?: boolean | undefined;
 }
 
-export const NoSsr: React.FC<NoSsrProps> = ({ active, children, className, disabled }) => {
-  return <StyledNoSsr>{children}</StyledNoSsr>;
+export const NoSSR: React.FC = ({ children }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => setIsClient(true), []);
+
+  return isClient ? <>{children}</> : <></>;
 };
+
+// const WrappedNoSSR = noSSR(() => <div></div>);
+export function noSSR<P extends {}>(Any: React.FC<P> | typeof React.Component): React.FC<P> {
+  return (props) => (
+    <NoSSR>
+      <Any {...props} />
+    </NoSSR>
+  );
+}
