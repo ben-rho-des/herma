@@ -1,15 +1,13 @@
 import classnames from 'classnames';
 import React, { useMemo } from 'react';
+import { CommonProps } from '../../utils/commonProps';
 import { StyledProgress } from './progress.style';
 
-export interface ProgressProps {
+export interface ProgressProps extends CommonProps {
   size?: number;
   children?: React.ReactNode;
   progress?: number;
-  active?: boolean | undefined;
-  disabled?: boolean | undefined;
   strokeCap?: `${StrokeCap}`;
-  className?: string;
 }
 
 enum StrokeCap {
@@ -25,27 +23,19 @@ export const Progress: React.FC<ProgressProps> = ({
   children,
   size = DEFAULT_SIZE,
   progress = 30,
-  active,
-  disabled,
   strokeCap = StrokeCap.ROUND,
   className
 }) => {
-  const classes = classnames(
-    'progress',
-    active && `progress--active`,
-    disabled && `progress--disabled`,
-    className
-  );
+  const classes = classnames('progress', className);
 
-  const limitedSize = size < MIN_SIZE ? MIN_SIZE : size;
-  const limitedProgress = progress > 100 ? 100 : progress;
+  const limitedSize = useMemo(() => (size < MIN_SIZE ? MIN_SIZE : size), [size]);
+  const limitedProgress = useMemo(() => (progress > 100 ? 100 : progress), [progress]);
   const radius = useMemo(() => Math.round(limitedSize / 2 - STROKE_WIDTH / 2), [limitedSize]);
   const circumference = useMemo(() => radius * 2 * Math.PI, [radius]);
   const dash = useMemo(() => circumference - (limitedProgress / 100) * circumference, [
     circumference,
     limitedProgress
   ]);
-
   const innerCircleSize = useMemo(() => Math.round(limitedSize - STROKE_WIDTH * 2), [limitedSize]);
 
   return (

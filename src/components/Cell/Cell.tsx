@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { CommonProps } from '../../utils/commonProps';
 
 export interface CellProps extends CommonProps {
-  className?: string;
   width?: number;
   height?: number;
   top?: number | string;
