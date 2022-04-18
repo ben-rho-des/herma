@@ -34,7 +34,7 @@ export type GridThemeType = {
   md: GridBreakpointType;
   lg: GridBreakpointType;
   xl: GridBreakpointType;
-  xxl: GridBreakpointType;
+  xx: GridBreakpointType;
 };
 
 export const Grid = forwardRef((props: IGridProps, ref: any) => {

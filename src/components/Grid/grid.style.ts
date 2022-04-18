@@ -43,10 +43,10 @@ export const StyledGrid = styled.div<IGridProps>`
         grid-template-columns: ${frGetter(theme.components.grid.xl.column)};
         grid-gap: ${theme.components.grid.xl.gap};
       }
-      ${theme.breakpointMQ.xxl} {
-        column-gap: ${theme.components.grid.xxl.column};
-        grid-template-columns: ${frGetter(theme.components.grid.xxl.column)};
-        grid-gap: ${theme.components.grid.xxl.gap};
+      ${theme.breakpointMQ.xx} {
+        column-gap: ${theme.components.grid.xx.column};
+        grid-template-columns: ${frGetter(theme.components.grid.xx.column)};
+        grid-gap: ${theme.components.grid.xx.gap};
       }
   `};
 `;

@@ -117,7 +117,7 @@ export interface ThemeSpacing {
   md: string;
   lg: string;
   xl: string;
-  xxl: string;
+  xx: string;
 }
 
 const SPACER = 1;
@@ -127,7 +127,7 @@ export interface ThemeBreakpoints {
   md: string;
   lg: string;
   xl: string;
-  xxl: string;
+  xx: string;
 }
 
 export interface ITheme {
@@ -149,7 +149,7 @@ const defaultThemeSpacing: ThemeSpacing = {
   md: `${SPACER}rem`,
   lg: `${SPACER * 1.5}rem`,
   xl: `${SPACER * 2.5}rem`,
-  xxl: `${SPACER * 4}rem`
+  xx: `${SPACER * 4}rem`
 };
 
 const defaultBreakPoints: ThemeBreakpoints = {
@@ -157,7 +157,7 @@ const defaultBreakPoints: ThemeBreakpoints = {
   md: '768px',
   lg: '992px',
   xl: '1200px',
-  xxl: '1400px'
+  xx: '1400px'
 };
 
 const defaultTypography: ThemeTypography = {
@@ -365,7 +365,7 @@ const defaultGridTheme: GridThemeType = {
     column: 12,
     gap: '1.5rem'
   },
-  xxl: {
+  xx: {
     column: 12,
     gap: '2rem'
   }
@@ -376,7 +376,7 @@ export const generateMediaQueries = (points: ThemeBreakpoints) => ({
   md: `@media (min-width: ${points.md})`,
   lg: `@media (min-width: ${points.lg})`,
   xl: `@media (min-width: ${points.xl})`,
-  xxl: `@media (min-width: ${points.xxl})`
+  xx: `@media (min-width: ${points.xx})`
 });
 
 const defaultContainerTheme: ContainerThemeType = {
@@ -392,7 +392,7 @@ const defaultContainerTheme: ContainerThemeType = {
   xl: {
     padding: '0 2rem '
   },
-  xxl: {
+  xx: {
     padding: '0 3.5rem'
   }
 };

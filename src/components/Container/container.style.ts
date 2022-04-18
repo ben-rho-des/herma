@@ -24,8 +24,8 @@ export const StyledContainer = styled.div<{
       ${theme.breakpointMQ.xl} {
         padding: ${theme.components.container.xl.padding};
       }
-      ${theme.breakpointMQ.xxl} {
-        padding: ${theme.components.container.xxl.padding};
+      ${theme.breakpointMQ.xx} {
+        padding: ${theme.components.container.xx.padding};
       }
   `};
 `;

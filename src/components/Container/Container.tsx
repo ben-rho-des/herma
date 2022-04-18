@@ -18,7 +18,7 @@ export type ContainerThemeType = {
   md: ContainerBreakpointType;
   lg: ContainerBreakpointType;
   xl: ContainerBreakpointType;
-  xxl: ContainerBreakpointType;
+  xx: ContainerBreakpointType;
 };
 
 export const Container: React.FC<IContainerProps> = ({
