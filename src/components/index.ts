@@ -14,3 +14,5 @@ export * from './Radio';
 export * from './Progress';
 export * from './Select';
 export * from './Typography';
+export * from './Theme'
+
