@@ -1,4 +1,6 @@
 import React from 'react';
+import { ContainerThemeType } from '../Container';
+import { GridThemeType } from '../Grid';
 
 export interface ThemeProps {
   children?: React.ReactNode;
@@ -48,7 +50,7 @@ interface TextColors {
 }
 
 interface ActionColors {
-  primary: string;
+  agnostic: string;
   success: string;
   danger: string;
   warning: string;
@@ -128,11 +130,16 @@ export interface ThemeBreakpoints {
   xxl: string;
 }
 
-export interface Theme {
+export interface ITheme {
   breakpoint: ThemeBreakpoints;
+  breakpointMQ: ThemeBreakpoints;
   color: ThemeColors;
   spacing: ThemeSpacing;
   typography: ThemeTypography;
+  components: {
+    container: ContainerThemeType;
+    grid: GridThemeType;
+  };
 }
 
 const defaultThemeSpacing: ThemeSpacing = {
@@ -334,18 +341,34 @@ const defaultColor: ThemeColors = {
     selected: '#fc0'
   },
   action: {
-    primary: '#fc0',
-    success: '#fc0',
-    danger: '#fc0',
-    warning: '#fc0'
+    agnostic: '#ccc',
+    success: '#080',
+    danger: '#c00',
+    warning: '#c60'
   }
 };
 
-const defaultTheme: Theme = {
-  breakpoint: defaultBreakPoints,
-  color: defaultColor,
-  spacing: defaultThemeSpacing,
-  typography: defaultTypography
+const defaultGridTheme: GridThemeType = {
+  sm: {
+    column: 2,
+    gap: '1rem'
+  },
+  md: {
+    column: 4,
+    gap: '1rem'
+  },
+  lg: {
+    column: 12,
+    gap: '1rem'
+  },
+  xl: {
+    column: 12,
+    gap: '1.5rem'
+  },
+  xxl: {
+    column: 12,
+    gap: '2rem'
+  }
 };
 
 export const generateMediaQueries = (points: ThemeBreakpoints) => ({
@@ -356,19 +379,34 @@ export const generateMediaQueries = (points: ThemeBreakpoints) => ({
   xxl: `@media (min-width: ${points.xxl})`
 });
 
-const ThemeContext = React.createContext(defaultTheme);
-
-export interface ThemeProviderProps {
-  children: React.ReactNode;
-  theme?: Theme;
-}
-
-export const Theme = ({ theme = defaultTheme, children }: ThemeProviderProps) => {
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
+const defaultContainerTheme: ContainerThemeType = {
+  sm: {
+    padding: '0 1rem'
+  },
+  md: {
+    padding: '0 1rem '
+  },
+  lg: {
+    padding: '0 1.5rem'
+  },
+  xl: {
+    padding: '0 2rem '
+  },
+  xxl: {
+    padding: '0 3.5rem'
+  }
 };
 
-export function useTheme() {
-  return React.useContext(ThemeContext);
-}
+const defaultTheme: ITheme = {
+  breakpoint: defaultBreakPoints,
+  breakpointMQ: generateMediaQueries(defaultBreakPoints),
+  color: defaultColor,
+  spacing: defaultThemeSpacing,
+  typography: defaultTypography,
+  components: {
+    container: defaultContainerTheme,
+    grid: defaultGridTheme
+  }
+};
 
 export default defaultTheme;

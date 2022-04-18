@@ -55,6 +55,7 @@ export default {
       targets: [
         { src: 'LICENSE', dest: 'dist' },
         { src: 'README.md', dest: 'dist' },
+        { src: 'src/assets/css/normalize.css', dest: 'dist' },
         {
           src: 'package.json',
           dest: 'dist',

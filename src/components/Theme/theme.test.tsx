@@ -1,10 +1,11 @@
 import React from 'react';
-import { Theme, ThemeProps } from '.';
+import { ThemeProvider } from '@emotion/react';
+import theme, { ThemeProps } from './Theme';
 import { render, screen } from '@testing-library/react';
 
 const defaultProps: ThemeProps = {};
 
-const setup = (props = defaultProps) => render(<Theme>meep</Theme>);
+const setup = (props = defaultProps) => render(<ThemeProvider theme={theme}>meep</ThemeProvider>);
 
 describe('Theme', () => {
   it('renders', () => {

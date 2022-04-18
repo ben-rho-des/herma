@@ -16,3 +16,7 @@ export * from './Select';
 export * from './Typography';
 export * from './Theme'
 
+export * from './GlobalStyles'
+
+export * from './Container'
+

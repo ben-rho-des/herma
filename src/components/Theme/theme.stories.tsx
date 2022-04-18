@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Theme, useTheme } from './Theme';
+import { ThemeProvider, useTheme } from '@emotion/react';
+import theme from './Theme';
 
 const matchHex = /(#[a-f\dA-F]{6})/g;
 const matchShortHex = /(#[a-f\dA-F]{3})/g;
@@ -35,7 +36,7 @@ const convertHexToSpan = (color: string) =>
     );
 
 storiesOf('Theme', module).add('Default', () => (
-  <Theme>
+  <ThemeProvider theme={theme}>
     <Component />
-  </Theme>
+  </ThemeProvider>
 ));

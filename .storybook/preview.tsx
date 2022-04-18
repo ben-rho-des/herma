@@ -1,4 +1,5 @@
 import * as React from 'react';
+import '../assets/css/normalize.css';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const withBreakpointHUD = (Story, context) => {

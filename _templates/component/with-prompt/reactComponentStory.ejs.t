@@ -3,7 +3,10 @@ to: src/components/<%= h.changeCase.pascalCase(name) %>/<%= h.changeCase.camelCa
 ---
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { ThemeProvider } from '@emotion/react';
+
 import { <%= h.changeCase.pascalCase(name) %> } from './';
+import theme from '../Theme/Theme';
 
 storiesOf('<%= h.changeCase.pascalCase(name) %>', module)
   .add('Default', () => <<%= h.changeCase.pascalCase(name) %>>🗿</<%= h.changeCase.pascalCase(name) %>>)

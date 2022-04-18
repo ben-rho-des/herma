@@ -1,10 +1,12 @@
 import React, { forwardRef, ElementType } from 'react';
+import { useTheme } from '@emotion/react';
 import classnames from 'classnames';
 import { Align, AlignContent, Height, Justify, JustifyContent, Width } from '../../types';
 import { CommonProps } from '../../utils/commonProps';
 import { StyledGrid } from './grid.style';
+import { ITheme } from '../Theme';
 
-export interface GridProps extends CommonProps {
+export interface IGridProps extends CommonProps {
   align?: `${Align}`;
   alignContent?: string | `${AlignContent}`;
   areas?: string[];
@@ -19,27 +21,26 @@ export interface GridProps extends CommonProps {
   width?: Width;
   minRowHeight?: string;
   flow?: string;
+
+  theme?: ITheme;
 }
 
-export const Grid = forwardRef((props: GridProps, ref: any) => {
-  const { height, rows, as, width, ...rest } = props;
+type GridBreakpointType = {
+  column: number;
+  gap: string;
+};
+export type GridThemeType = {
+  sm: GridBreakpointType;
+  md: GridBreakpointType;
+  lg: GridBreakpointType;
+  xl: GridBreakpointType;
+  xxl: GridBreakpointType;
+};
 
-  return (
-    <StyledGrid
-      data-test='herma-grid'
-      ref={ref}
-      as={as}
-      height={height}
-      rows={rows}
-      width={width}
-      {...rest}
-    />
-  );
-});
-
-export const Container = forwardRef((props: GridProps, ref: any) => {
+export const Grid = forwardRef((props: IGridProps, ref: any) => {
   const { height, rows, as, width, className, ...rest } = props;
   const classes = classnames('grid', className);
+  const theme = useTheme();
 
   return (
     <StyledGrid
@@ -51,6 +52,7 @@ export const Container = forwardRef((props: GridProps, ref: any) => {
       width={width}
       className={classes}
       {...rest}
+      {...(Object.keys(theme).length ? { theme } : {})}
     />
   );
 });

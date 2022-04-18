@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, GridProps } from '.';
+import { Grid, IGridProps } from '.';
 import { render, screen } from '@testing-library/react';
 
-const defaultProps: GridProps = {
+const defaultProps: IGridProps = {
   children: <div>hello</div>,
   gap: '20px',
   columns: 10
