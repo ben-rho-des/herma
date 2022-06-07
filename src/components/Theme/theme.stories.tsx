@@ -35,7 +35,7 @@ const convertHexToSpan = (color: string) =>
       "<span style='position:relative'><div style='background:rgba$1$2); width: 13px; height: 13px; display: inline-block; position: relative; top: 3px; border: 1px solid black; margin-right: 3px;'></div>rgba$1$2)</span>"
     );
 
-storiesOf('Theme', module).add('Default', () => (
+storiesOf('Global/Theme', module).add('Default', () => (
   <ThemeProvider theme={theme}>
     <Component />
   </ThemeProvider>

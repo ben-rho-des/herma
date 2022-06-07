@@ -4,11 +4,13 @@ import { ITheme } from '../Theme';
 export const StyledContainer = styled.div<{
   background?: string;
   padding?: string;
+  height?: string;
   theme?: ITheme;
 }>`
   font-size: 5rem;
   ${({ background }) => background && `background: ${background}`};
   ${({ padding }) => padding && `padding: ${padding}`};
+  height: ${({ height = 'auto' }) => height};
 
   ${({ theme }) =>
     Object.keys(theme).length &&

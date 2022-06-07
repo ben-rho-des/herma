@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
+import { ButtonProps } from './Button';
 
-export const StyledButton = styled.span`
+export const StyledButton = styled.div<Partial<ButtonProps>>`
   background: DarkTurquoise;
-  font-size: 5rem;
+  border: 0;
+  cursor: pointer;
+  ${({ disabled }) => disabled && `cursor: not-allowed;`}
 `;

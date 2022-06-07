@@ -13,7 +13,7 @@ const StyledCell = styled(Cell)`
   align-items: center;
 `;
 
-storiesOf('Cell', module).add('Default', () => (
+storiesOf('Components/Cell', module).add('Default', () => (
   <Grid columns={3} gap='16px 32px'>
     <StyledCell left={2} height={4} width={2}>
       🗿

@@ -15,7 +15,7 @@ const Div = styled.div`
   height: 400px;
 `;
 
-storiesOf('Grid', module).add('Default', () => (
+storiesOf('Components/Grid', module).add('Default', () => (
   <Grid columns={10} gap='1rem'>
     <Div>🗿</Div>
     <Div>🗿</Div>
@@ -32,7 +32,7 @@ storiesOf('Grid', module).add('Default', () => (
   </Grid>
 ));
 
-storiesOf('Grid', module).add('/w Theme', () => (
+storiesOf('Components/Grid', module).add('/w Theme', () => (
   <ThemeProvider theme={theme}>
     <Grid columns={10} gap='1rem'>
       <Div>🗿</Div>

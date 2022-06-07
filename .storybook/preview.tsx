@@ -1,12 +1,13 @@
 import * as React from 'react';
 import '../assets/css/normalize.css';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { DeveloperHUD } from '../src/components/DeveloperHUD';
 
 const withBreakpointHUD = (Story, context) => {
   return (
-    <>
+    <DeveloperHUD on>
       <Story {...context} />
-    </>
+    </DeveloperHUD>
   );
 };
 

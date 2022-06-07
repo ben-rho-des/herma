@@ -2,27 +2,7 @@ import * as React from 'react';
 import { Global, css, useTheme, SerializedStyles } from '@emotion/react';
 import { ThemeColors } from '../Theme';
 
-const commonGlobalCSS = (colors: ThemeColors): SerializedStyles => css`
-  a:not([class]),
-  a:not([class]):visited {
-    text-decoration: underline;
-    color: red;
-  }
-  a:not([class]):hover {
-    color: red;
-  }
-  a:not([class]):active {
-    color: red;
-  }
-  button:focus:hover,
-  a:focus:hover {
-    outline: none;
-  }
-  button:focus:not(:hover),
-  a:focus:not(:hover) {
-    box-shadow: 0 0 0 3px #fc0;
-  }
-`;
+const commonGlobalCSS = (colors: ThemeColors): SerializedStyles => css``;
 
 const cssVars = (colors: ThemeColors) => `
     :root {

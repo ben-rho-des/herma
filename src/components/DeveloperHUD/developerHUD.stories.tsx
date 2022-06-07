@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import { DeveloperHUD } from './';
 
 export const Span = styled.span`
   background: rgba(0, 0, 0, 0.05);
@@ -10,7 +9,7 @@ export const Span = styled.span`
   border-radius: 3px;
 `;
 
-storiesOf('DeveloperHUD', module).add('Default', () => {
+storiesOf('Global/DeveloperHUD', module).add('Default', () => {
   document.body.classList.remove('sb-main-padded');
   return (
     <div
@@ -23,9 +22,7 @@ storiesOf('DeveloperHUD', module).add('Default', () => {
         padding: '2.5rem'
       }}
     >
-      <DeveloperHUD on>
-        Press <Span>~</Span> or <Span>ctrl + 1</Span>, <Span>ctrl + 2</Span>, <Span>ctrl + 3</Span>
-      </DeveloperHUD>
+      Press <Span>~</Span> or <Span>ctrl + 1</Span>, <Span>ctrl + 2</Span>, <Span>ctrl + 3</Span>
     </div>
   );
 });

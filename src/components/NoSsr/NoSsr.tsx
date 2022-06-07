@@ -5,7 +5,7 @@ export interface NoSsrProps {
   children?: React.ReactNode;
 }
 
-export const NoSSR: React.FC = ({ children }) => {
+export const NoSSR: React.FC<NoSsrProps> = ({ children }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);

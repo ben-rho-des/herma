@@ -1,8 +1,29 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
+import React, { PropsWithChildren } from 'react';
+import { Meta, Story } from '@storybook/react';
 import { Button } from './';
 
-storiesOf('Button', module)
-  .add('Default', () => <Button>🗿</Button>)
-  .add('Active', () => <Button active>🗿</Button>)
-  .add('Disabled', () => <Button disabled>🗿</Button>);
+const meta: Meta<PropsWithChildren<Record<string, unknown>>> = {
+  title: 'Components/Button',
+  component: Button,
+  argTypes: {
+    as: {
+      description: 'The element of the button',
+      control: { type: 'select', options: ['button', 'a'] },
+      defaultValue: 'button'
+    },
+    label: {
+      description: 'the label to be shown on the button',
+      defaultValue: 'buy buy buy'
+    }
+  }
+};
+
+const Template: Story<PropsWithChildren<Record<string, any>>> = (args) => {
+  return <Button {...args} label={args.label} icon={<>💰</>} />;
+};
+
+const Basic = Template.bind({});
+
+export default meta;
+
+export { Basic };

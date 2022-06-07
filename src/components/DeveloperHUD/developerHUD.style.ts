@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { hermaBorderColor, hermaColor, hermaBG } from '../../styles/commonStyles';
+import { Height } from '../../types';
 
 export const StyledDeveloperHUD = styled.div`
   font-family: monospace;
@@ -180,7 +181,7 @@ export const Overlay = styled.div<{
   grid?: boolean;
   opacity?: number;
   position?: string;
-  height?: string;
+  height?: Height;
   // theme?: any;
 }>`
   width: 100%;
@@ -193,4 +194,19 @@ export const Overlay = styled.div<{
   ${({ height }) => `height: ${height ?? '100%'}`};
   ${({ opacity }) => `opacity: ${opacity ?? 1}`};
   ${({ position }) => `position: ${position ?? 'fixed'}`};
+`;
+
+export const GridCol = styled.div`
+  border-left: 1px solid rgba(0, 255, 255, 0.6);
+  border-right: 1px solid rgba(0, 255, 255, 0.6);
+  opacity: 0.4;
+
+  background: rgba(0, 255, 255, 0.2);
+  &:first-of-type {
+    border-left-color: rgba(120, 155, 255, 0.6);
+  }
+
+  &:last-of-type {
+    border-right-color: rgba(120, 155, 255, 0.6);
+  }
 `;

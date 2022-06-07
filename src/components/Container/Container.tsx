@@ -7,6 +7,7 @@ export interface IContainerProps extends CommonProps {
   children?: React.ReactNode;
   background?: string;
   padding?: string;
+  height?: string;
 }
 
 type ContainerBreakpointType = {
@@ -24,6 +25,7 @@ export type ContainerThemeType = {
 export const Container: React.FC<IContainerProps> = ({
   children,
   background,
+  height,
   className,
   padding,
   ...rest
@@ -35,6 +37,7 @@ export const Container: React.FC<IContainerProps> = ({
       className={classes}
       background={background}
       padding={padding}
+      height={height}
       {...rest}
     >
       {children}

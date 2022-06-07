@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { ProgressProps } from './Progress';
+import { ProgressProps, ProgressVariants } from './Progress';
 
 interface StyledProgressProps extends ProgressProps {
   // theme: Theme;
+  variant: `${ProgressVariants}`;
   dash: number;
   circumference: number;
   strokeWidth: number;
@@ -11,7 +12,7 @@ interface StyledProgressProps extends ProgressProps {
 }
 
 const circular = ({
-  // variant,
+  variant,
   // theme,
   size,
   innerCircleSize,
@@ -19,7 +20,7 @@ const circular = ({
   circumference,
   strokeWidth
 }: StyledProgressProps) => {
-  const isCircular = true; //variant === ProgressBarVariants.CIRCULAR;
+  const isCircular = variant === ProgressVariants.CIRCULAR;
 
   if (isCircular) {
     return css`
@@ -54,17 +55,36 @@ const circular = ({
 };
 
 // eslint-disable-next-line arrow-body-style
-const horizontal = () => {
-  // const isHorizontal = variant === ProgressBarVariants.HORIZONTAL;
-  // if (isHorizontal) {
-  //   return css`
-  //     background: red;
-  //   `;
-  // }
+const horizontal = ({ variant, size }) => {
+  const isHorizontal = variant === ProgressVariants.HORIZONTAL;
+  if (isHorizontal) {
+    return css`
+      margin: 0 auto;
+      width: ${size}px;
+      height: ${size}px;
+    `;
+  }
+  return '';
+};
+
+// eslint-disable-next-line arrow-body-style
+const vertical = ({ variant, size }) => {
+  const isVertical = variant === ProgressVariants.VERTICAL;
+  if (isVertical) {
+    return css`
+      margin: 0 auto;
+      width: ${size}px;
+      height: ${size}px;
+    `;
+  }
   return '';
 };
 
 export const StyledProgress = styled.div<StyledProgressProps>`
   ${horizontal}
+  ${vertical}
   ${circular}
+  .progress__total {
+    stroke: blue;
+  }
 `;

@@ -11,9 +11,12 @@ import {
   StyledDeveloperHUD,
   VerticalRhythmGuides,
   VerticalHUD,
-  GridHUD
+  GridHUD,
+  GridCol
 } from './developerHUD.style';
 import { NoSSR } from '../NoSsr';
+import { Grid } from '../Grid';
+import { Container } from '../Container';
 
 export interface DeveloperHUDProps extends CommonProps {
   children?: any;
@@ -82,8 +85,28 @@ export const DeveloperHUD: React.FC<DeveloperHUDProps> = ({
           <VerticalHUD>Vertical Rhythm guide</VerticalHUD>
         </Overlay>
 
-        <Overlay className='grid-viewer' position='absolute' height='1690px'>
-          <p>todo add grid here</p>
+        <Overlay
+          className='grid-viewer'
+          position='fixed'
+          height='100%'
+          style={{ pointerEvents: 'none' }}
+        >
+          <Container height='100%' padding='0 3rem'>
+            <Grid columns={12} gap='1rem' height='100%'>
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+              <GridCol />
+            </Grid>
+          </Container>
           <GridHUD>Grid guide</GridHUD>
         </Overlay>
 
