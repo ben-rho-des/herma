@@ -1,26 +1,7 @@
 import classnames from 'classnames';
 import React, { useMemo } from 'react';
-import { CommonProps } from '../../utils/commonProps';
 import { StyledProgress } from './progress.style';
-
-export interface ProgressProps extends CommonProps {
-  size?: number;
-  children?: React.ReactNode;
-  progress?: number;
-  strokeCap?: `${StrokeCap}`;
-  variant?: `${ProgressVariants}`;
-}
-
-export enum ProgressVariants {
-  CIRCULAR = 'circular',
-  HORIZONTAL = 'horizontal',
-  VERTICAL = 'vertical'
-}
-
-export enum StrokeCap {
-  BUTT = 'butt',
-  ROUND = 'round'
-}
+import { ProgressProps, ProgressVariants, StrokeCap } from './Progress.types';
 
 const DEFAULT_SIZE = 120;
 const MIN_SIZE = 100;

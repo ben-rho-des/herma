@@ -6,7 +6,6 @@ export * from './Checkbox';
 export * from './DeveloperHUD';
 export * from './Grid';
 export * from './Input';
-export * from './Link';
 export * from './List';
 export * from './ListItem';
 export * from './NoSsr';
@@ -14,9 +13,8 @@ export * from './Radio';
 export * from './Progress';
 export * from './Select';
 export * from './Typography';
-export * from './Theme'
+export * from './Theme';
 
-export * from './GlobalStyles'
+export * from './GlobalStyles';
 
-export * from './Container'
-
+export * from './Container';

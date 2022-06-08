@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { ProgressProps, ProgressVariants } from './Progress';
+import { ProgressProps, ProgressVariants } from './Progress.types';
 
 interface StyledProgressProps extends ProgressProps {
   // theme: Theme;
@@ -55,7 +55,7 @@ const circular = ({
 };
 
 // eslint-disable-next-line arrow-body-style
-const horizontal = ({ variant, size }) => {
+const horizontal = ({ variant, size }: StyledProgressProps) => {
   const isHorizontal = variant === ProgressVariants.HORIZONTAL;
   if (isHorizontal) {
     return css`
@@ -68,7 +68,7 @@ const horizontal = ({ variant, size }) => {
 };
 
 // eslint-disable-next-line arrow-body-style
-const vertical = ({ variant, size }) => {
+const vertical = ({ variant, size }: StyledProgressProps) => {
   const isVertical = variant === ProgressVariants.VERTICAL;
   if (isVertical) {
     return css`
@@ -81,9 +81,9 @@ const vertical = ({ variant, size }) => {
 };
 
 export const StyledProgress = styled.div<StyledProgressProps>`
-  ${horizontal}
-  ${vertical}
-  ${circular}
+  ${(props) => horizontal(props)}
+  ${(props) => vertical(props)}
+  ${(props) => circular(props)}
   .progress__total {
     stroke: blue;
   }
